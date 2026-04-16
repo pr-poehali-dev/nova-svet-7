@@ -1,3 +1,7 @@
-# nova-svet-7
+# VERDANT - Экологический Мониторинг
 
-Initial repository setup for pr-poehali-dev/nova-svet-7
+![Preview](https://cdn.poehali.dev/templates/verdant/preview-ru.jpg)
+
+Лендинг для природоохранной организации или экологического стартапа. Темная тема с акцентами на зеленый и розовый. Включает hero-секцию с параллаксом и анимированным текстом, интерактивную карту проектов, метрики с счетчиками, блок технологий с переключаемыми карточками, FAQ-аккордеон и форму подписки.
+
+`"tags": ["landing", "dark", "conservation", "animations", "hero", "glass"]`
