@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { PawPrint, Trees, Satellite, Menu, X, Youtube, Instagram, ChevronDown } from "lucide-react"
+import { Menu, X, Youtube, Instagram, ChevronDown } from "lucide-react"
 import { AnimatedText } from "@/components/animated-text"
-import { CustomDroneIcon } from "@/components/drone-icon"
+import Icon from "@/components/ui/icon"
 import { WorldMap } from "@/components/world-map"
 import { experiences } from "@/lib/experience-data"
 import type { Experience } from "@/lib/experience-data"
@@ -64,7 +64,7 @@ export default function VerdantPage() {
   const heroRef = useRef<HTMLDivElement>(null)
   const observerRef = useRef<IntersectionObserver | null>(null)
 
-  const dynamicWords = ["леса", "природу", "животных", "экосистемы", "биоразнообразие", "дикую жизнь", "среду обитания"]
+  const dynamicWords = ["золото", "украшения", "бриллианты", "серебро", "кольца", "цепочки", "монеты"]
 
   useEffect(() => {
     const wordInterval = setInterval(() => {
@@ -150,6 +150,13 @@ export default function VerdantPage() {
     setIsMenuOpen(false)
   }
 
+  const featureImages = [
+    "https://cdn.poehali.dev/projects/4ee05460-2fe5-4e11-88f6-861e898e85a0/files/67a6603f-4ada-4b4d-92a9-eb884ce6c406.jpg",
+    "https://cdn.poehali.dev/projects/4ee05460-2fe5-4e11-88f6-861e898e85a0/files/e67d86e4-7862-4260-bda0-3d39729b2df8.jpg",
+    "https://cdn.poehali.dev/projects/4ee05460-2fe5-4e11-88f6-861e898e85a0/files/67a6603f-4ada-4b4d-92a9-eb884ce6c406.jpg",
+    "https://cdn.poehali.dev/projects/4ee05460-2fe5-4e11-88f6-861e898e85a0/files/e67d86e4-7862-4260-bda0-3d39729b2df8.jpg",
+  ]
+
   return (
     <div className="relative min-h-screen bg-[#0B0C0F] text-[#F2F3F5] overflow-x-hidden">
       <header className="fixed top-6 left-6 md:w-auto md:right-auto right-6 z-40 border border-white/10 backdrop-blur-md bg-[#0B0C0F]/80 rounded-[16px]">
@@ -157,9 +164,9 @@ export default function VerdantPage() {
           <div className="flex items-center gap-6 md:h-14 h-14">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-lg md:text-xl font-semibold font-mono hover:text-pink-400 transition-colors duration-300"
+              className="text-lg md:text-xl font-semibold font-mono hover:text-yellow-400 transition-colors duration-300"
             >
-              VERDANT
+              ЗОЛОТОЙ ВЕК
             </button>
 
             <nav className="hidden md:flex items-center gap-8">
@@ -167,19 +174,19 @@ export default function VerdantPage() {
                 onClick={() => scrollToSection("metrics")}
                 className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors duration-300"
               >
-                Результаты
+                Цифры
               </button>
               <button
                 onClick={() => scrollToSection("map")}
                 className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors duration-300"
               >
-                Проекты
+                Адреса
               </button>
               <button
                 onClick={() => scrollToSection("narrative")}
                 className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors duration-300"
               >
-                Технологии
+                Как это работает
               </button>
               <button
                 onClick={() => scrollToSection("faq")}
@@ -191,7 +198,7 @@ export default function VerdantPage() {
                 onClick={() => scrollToSection("cta")}
                 className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors duration-300"
               >
-                Участвовать
+                Оценить
               </button>
             </nav>
 
@@ -211,43 +218,50 @@ export default function VerdantPage() {
           <div className="flex flex-col gap-8 items-start text-left w-full">
             <button
               onClick={() => scrollToSection("metrics")}
-              className="font-serif text-5xl md:text-7xl font-light text-[#F2F3F5] hover:text-pink-400 transition-colors duration-300"
+              className="font-serif text-5xl md:text-7xl font-light text-[#F2F3F5] hover:text-yellow-400 transition-colors duration-300"
             >
-              Результаты
+              Цифры
             </button>
             <button
               onClick={() => scrollToSection("map")}
-              className="font-serif text-5xl md:text-7xl font-light text-[#F2F3F5] hover:text-pink-400 transition-colors duration-300"
+              className="font-serif text-5xl md:text-7xl font-light text-[#F2F3F5] hover:text-yellow-400 transition-colors duration-300"
             >
-              Проекты
+              Адреса
             </button>
             <button
               onClick={() => scrollToSection("narrative")}
-              className="font-serif text-5xl md:text-7xl font-light text-[#F2F3F5] hover:text-pink-400 transition-colors duration-300"
+              className="font-serif text-5xl md:text-7xl font-light text-[#F2F3F5] hover:text-yellow-400 transition-colors duration-300"
             >
-              Технологии
+              Как это работает
             </button>
             <button
               onClick={() => scrollToSection("faq")}
-              className="font-serif text-5xl md:text-7xl font-light text-[#F2F3F5] hover:text-pink-400 transition-colors duration-300"
+              className="font-serif text-5xl md:text-7xl font-light text-[#F2F3F5] hover:text-yellow-400 transition-colors duration-300"
             >
               Вопросы
             </button>
             <button
               onClick={() => scrollToSection("cta")}
-              className="font-serif text-5xl md:text-7xl font-light text-[#F2F3F5] hover:text-pink-400 transition-colors duration-300"
+              className="font-serif text-5xl md:text-7xl font-light text-[#F2F3F5] hover:text-yellow-400 transition-colors duration-300"
             >
-              Участвовать
+              Оценить
             </button>
           </div>
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="absolute top-6 right-6 p-2 hover:bg-white/5 rounded-lg transition-colors"
+          >
+            <X className="w-6 h-6" />
+          </button>
         </div>
       )}
 
+      {/* Hero Section */}
       <section
         ref={heroRef}
-        className={`relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 md:pt-32 md:pb-24 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${isLoaded ? "scale-100 opacity-100" : "scale-[1.03] opacity-0"}`}
+        className="relative min-h-screen flex items-end pb-16 md:pb-24 px-4 overflow-hidden"
         style={{
-          backgroundImage: `url('/hero-landscape.png')`,
+          backgroundImage: `url('https://cdn.poehali.dev/projects/4ee05460-2fe5-4e11-88f6-861e898e85a0/files/67a6603f-4ada-4b4d-92a9-eb884ce6c406.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
@@ -257,7 +271,7 @@ export default function VerdantPage() {
           className="absolute inset-0 pointer-events-none"
           style={{
             transform: `translateY(${scrollY * 0.5}px)`,
-            backgroundImage: `url('/hero-landscape.png')`,
+            backgroundImage: `url('https://cdn.poehali.dev/projects/4ee05460-2fe5-4e11-88f6-861e898e85a0/files/67a6603f-4ada-4b4d-92a9-eb884ce6c406.jpg')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -278,21 +292,24 @@ export default function VerdantPage() {
                   wordFade ? "opacity-100 blur-0" : "opacity-0 blur-lg"
                 }`}
               >
-                Защитим <AnimatedText key={dynamicWordIndex} text={dynamicWords[dynamicWordIndex]} delay={0} />
+                Скупаем <AnimatedText key={dynamicWordIndex} text={dynamicWords[dynamicWordIndex]} delay={0} />
               </span>
               <span className="block stagger-reveal text-7xl font-light md:text-8xl" style={{ animationDelay: "90ms" }}>
-                в масштабе
+                дорого
               </span>
             </h1>
             <p
               className="text-[#A7ABB3] text-base md:text-lg max-w-[520px] mx-auto mb-8 leading-relaxed stagger-reveal text-white"
               style={{ animationDelay: "180ms" }}
             >
-              Мониторинг лесов в реальном времени с помощью ИИ. Обнаружение угроз, отслеживание биоразнообразия, сохранение природы для будущих поколений.
+              Честная оценка и выгодная цена за ваше золото и украшения. Работаем быстро, выплачиваем сразу — без лишних формальностей.
             </p>
             <div className="stagger-reveal" style={{ animationDelay: "270ms" }}>
-              <Button className="glass-button px-8 py-6 text-base rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-white">
-                Начать защиту
+              <Button
+                onClick={() => scrollToSection("cta")}
+                className="glass-button px-8 py-6 text-base rounded-full bg-yellow-500/10 border border-yellow-400/30 hover:bg-yellow-500/20 hover:border-yellow-400/50 transition-all duration-300 text-yellow-100"
+              >
+                Узнать стоимость
               </Button>
             </div>
           </div>
@@ -308,8 +325,8 @@ export default function VerdantPage() {
                 }}
               >
                 <img
-                  src="/dashboard-screenshot.png"
-                  alt="Панель мониторинга VERDANT"
+                  src="https://cdn.poehali.dev/projects/4ee05460-2fe5-4e11-88f6-861e898e85a0/files/e67d86e4-7862-4260-bda0-3d39729b2df8.jpg"
+                  alt="Скупка золота и драгоценностей"
                   className="object-cover dashboard-image w-full h-auto"
                 />
               </div>
@@ -318,10 +335,11 @@ export default function VerdantPage() {
         </div>
       </section>
 
+      {/* Partners / Trust bar */}
       <section className="relative py-12 border-y border-white/5 bg-[#0B0C0F] overflow-hidden md:py-8 md:pt-8 md:pb-4">
         <div className="w-full">
           <p className="text-center text-xs md:text-sm uppercase tracking-[0.2em] text-[#A7ABB3] mb-8">
-            Нам доверяют ведущие природоохранные организации
+            Принимаем изделия ведущих ювелирных домов
           </p>
           <div className="logo-marquee">
             <div className="logo-marquee-content">
@@ -346,7 +364,7 @@ export default function VerdantPage() {
                 <div key={i} className="px-8 md:px-12 flex items-center justify-center flex-shrink-0">
                   <img
                     src={logo || "/placeholder.svg"}
-                    alt={`Логотип партнера ${i + 1}`}
+                    alt={`Логотип бренда ${i + 1}`}
                     className="h-32 md:h-24 w-auto object-contain opacity-60 hover:opacity-60 transition-all duration-300 brightness-0 invert"
                   />
                 </div>
@@ -356,34 +374,35 @@ export default function VerdantPage() {
         </div>
       </section>
 
+      {/* Metrics */}
       <section id="metrics" className="relative py-20 md:py-32 px-4 animate-on-scroll md:pt-24 md:pb-20">
         <div className="max-w-[1120px] w-full mx-auto">
           <h2 className="font-serif text-[32px] leading-[1.15] md:text-[48px] md:leading-[1.1] font-medium mb-6 md:mb-8 text-center text-balance">
-            Природоохранный{" "}
+            Скупаем{" "}
             <span
               className="inline-block"
               style={{
-                background: "linear-gradient(135deg, #d9a7c7 0%, #fffcdc 100%)",
+                background: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}
             >
-              результат
+              выгодно
             </span>{" "}
-            в масштабе
+            и честно
           </h2>
 
           <p className="text-[#A7ABB3] text-sm md:text-base mb-12 md:mb-16 text-center max-w-[600px] mx-auto leading-relaxed">
-            Нам доверяют природоохранные организации по всему миру. Работаем на технологиях, созданных для природы.
+            Тысячи клиентов уже убедились — у нас лучшая цена и мгновенная выплата наличными.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-[800px] mx-auto">
             {[
-              { label: "ЗАЩИЩЕНО ЛЕСОВ", value: "2.4M", desc: "гектаров по всему миру", color: "pink" },
-              { label: "ВИДОВ НА МОНИТОРИНГЕ", value: "12K+", desc: "диких животных", color: "purple" },
-              { label: "ПОГЛОЩЕНО УГЛЕРОДА", value: "18M", desc: "тонн CO2", color: "pink" },
-              { label: "ТОЧНОСТЬ ДЕТЕКЦИИ", value: "99.4%", desc: "обнаружения угроз", color: "purple" },
+              { label: "ДОВОЛЬНЫХ КЛИЕНТОВ", value: "12K+", desc: "за последние 5 лет", color: "yellow" },
+              { label: "ВЫПЛАЧЕНО КЛИЕНТАМ", value: "850M", desc: "рублей наличными", color: "orange" },
+              { label: "СРЕДНЯЯ ОЦЕНКА", value: "4.9", desc: "из 5 звёзд на Яндексе", color: "yellow" },
+              { label: "МИНУТ НА ОЦЕНКУ", value: "15", desc: "и деньги у вас", color: "orange" },
             ].map((metric, i) => (
               <div
                 key={i}
@@ -393,7 +412,7 @@ export default function VerdantPage() {
                   className={`text-[10px] md:text-xs uppercase tracking-[0.15em] text-[#A7ABB3] mb-4 flex items-center justify-center gap-2`}
                 >
                   <span
-                    className={`w-1.5 h-1.5 rounded-full ${metric.color === "pink" ? "bg-pink-400/60" : "bg-purple-400/60"}`}
+                    className={`w-1.5 h-1.5 rounded-full ${metric.color === "yellow" ? "bg-yellow-400/60" : "bg-orange-400/60"}`}
                   />
                   {metric.label}
                 </div>
@@ -407,17 +426,18 @@ export default function VerdantPage() {
         </div>
       </section>
 
+      {/* Map / Locations */}
       <section id="map" className="relative py-20 md:py-32 animate-on-scroll bg-[#0B0C0F]">
         <div className="text-center mb-12 md:mb-16 px-4">
           <div className="text-[10px] md:text-xs uppercase tracking-[0.15em] text-[#A7ABB3] mb-6 flex items-center justify-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-pulse" />
-            ГЛОБАЛЬНЫЙ ОХВАТ
+            <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+            НАШИ АДРЕСА
           </div>
           <h2 className="font-serif text-[32px] leading-[1.15] md:text-[48px] md:leading-[1.1] font-medium mb-6 text-balance">
-            Проекты по всему миру
+            Ближайший пункт скупки
           </h2>
           <p className="text-[#A7ABB3] text-sm md:text-base max-w-[600px] mx-auto leading-relaxed">
-            Мониторинг и защита критически важных лесных экосистем на пяти континентах
+            Приходите в удобный для вас офис — оценим украшения сразу при вас
           </p>
         </div>
 
@@ -428,44 +448,38 @@ export default function VerdantPage() {
         />
       </section>
 
+      {/* How it works */}
       <section id="narrative" className="relative py-20 md:py-32 px-4 animate-on-scroll">
         <div className="max-w-[1120px] w-full mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-stretch">
             <div className="max-w-[720px]">
               <div className="text-[10px] md:text-xs uppercase tracking-[0.15em] text-[#A7ABB3] mb-6 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-pulse" />
-                ТЕХНОЛОГИИ СОХРАНЕНИЯ
+                <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+                КАК МЫ РАБОТАЕМ
               </div>
               <h2 className="font-serif text-[36px] leading-[1.15] md:text-[56px] md:leading-[1.1] font-medium mb-8 text-balance">
-                Каждая экосистема{" "}
+                Каждое изделие{" "}
                 <span
                   className="inline-block"
                   style={{
-                    background: "linear-gradient(135deg, #d9a7c7 0%, #fffcdc 100%)",
+                    background: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                   }}
                 >
-                  важна
+                  ценно
                 </span>
               </h2>
               <p className="text-[#A7ABB3] text-base md:text-lg leading-relaxed mb-12">
-                Наши спутниковые и ИИ-технологии отслеживают биоразнообразие, выявляют незаконные вырубки, анализируют паттерны обезлесения и оповещают команды в реальном времени. Сохранение со скоростью, которую требует природа.
+                Наши эксперты-оценщики с 10+ летним опытом определят точную пробу золота и рыночную стоимость прямо при вас. Никаких скрытых вычетов — только честная цена и мгновенная выплата.
               </p>
 
               <div className="md:hidden mb-8">
                 <div className="rounded-[24px] p-1 w-full aspect-square overflow-hidden">
                   <img
-                    src={
-                      [
-                        "/drone.png",
-                        "/real-time-satellite.png",
-                        "/biodiversity-tracking.png",
-                        "/deforestation-detect.png",
-                      ][selectedFeature] || "/placeholder.svg"
-                    }
-                    alt="Превью функции"
+                    src={featureImages[selectedFeature] || "/placeholder.svg"}
+                    alt="Превью услуги"
                     className={`w-full h-full object-cover rounded-[20px] transition-opacity duration-300 ${
                       imageFade ? "opacity-100" : "opacity-0"
                     }`}
@@ -476,28 +490,28 @@ export default function VerdantPage() {
               <div className="space-y-6">
                 {[
                   {
-                    title: "Дроны-разведчики",
-                    desc: "Аэросъемка для учета дикой природы и видового разнообразия",
-                    icon: CustomDroneIcon,
-                    image: "/drone.png",
+                    title: "Бесплатная оценка",
+                    desc: "Приходите с любым изделием — оценим бесплатно и без обязательств",
+                    iconName: "Scale",
+                    image: featureImages[0],
                   },
                   {
-                    title: "Мониторинг 24/7",
-                    desc: "Круглосуточное спутниковое наблюдение с мгновенными оповещениями",
-                    icon: Satellite,
-                    image: "/real-time-satellite.png",
+                    title: "Проверка пробы",
+                    desc: "Современные приборы XRF-анализа определяют состав без царапин",
+                    iconName: "Microscope",
+                    image: featureImages[1],
                   },
                   {
-                    title: "Учет биоразнообразия",
-                    desc: "Картирование и мониторинг популяций животных по регионам",
-                    icon: PawPrint,
-                    image: "/biodiversity-tracking.png",
+                    title: "Лучшая цена",
+                    desc: "Платим по биржевому курсу золота + наша надбавка за хорошие изделия",
+                    iconName: "TrendingUp",
+                    image: featureImages[2],
                   },
                   {
-                    title: "Защита от вырубки",
-                    desc: "Обнаружение угроз до их эскалации",
-                    icon: Trees,
-                    image: "/deforestation-detect.png",
+                    title: "Деньги сразу",
+                    desc: "Наличными или переводом на карту — в тот же день",
+                    iconName: "Banknote",
+                    image: featureImages[3],
                   },
                 ].map((feature, i) => (
                   <button
@@ -514,9 +528,11 @@ export default function VerdantPage() {
                       selectedFeature === i ? "border border-white/20" : "border border-white/10"
                     }`}
                   >
-                    <feature.icon
+                    <Icon
+                      name={feature.iconName}
+                      fallback="Star"
                       className={`w-6 h-6 flex-shrink-0 mt-1 transition-colors ${
-                        selectedFeature === i ? "text-green-400" : "text-green-500/60"
+                        selectedFeature === i ? "text-yellow-400" : "text-yellow-500/60"
                       }`}
                     />
                     <div className="flex-1">
@@ -525,7 +541,7 @@ export default function VerdantPage() {
                     </div>
                     {selectedFeature === i && (
                       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10">
-                        <div className="h-full bg-white progress-bar" />
+                        <div className="h-full bg-yellow-400 progress-bar" />
                       </div>
                     )}
                   </button>
@@ -535,24 +551,7 @@ export default function VerdantPage() {
 
             <div className="hidden md:flex items-stretch justify-center">
               <div className="relative w-full h-full min-h-[500px]">
-                {[
-                  {
-                    title: "Дроны-разведчики",
-                    image: "/drone.png",
-                  },
-                  {
-                    title: "Мониторинг 24/7",
-                    image: "/real-time-satellite.png",
-                  },
-                  {
-                    title: "Учет биоразнообразия",
-                    image: "/biodiversity-tracking.png",
-                  },
-                  {
-                    title: "Защита от вырубки",
-                    image: "/deforestation-detect.png",
-                  },
-                ].map((feature, i) => {
+                {featureImages.map((image, i) => {
                   const positionInStack = (i - selectedFeature + 4) % 4
                   const isActive = positionInStack === 0
 
@@ -567,8 +566,8 @@ export default function VerdantPage() {
                       }}
                     >
                       <img
-                        src={feature.image || "/placeholder.svg"}
-                        alt={feature.title}
+                        src={image || "/placeholder.svg"}
+                        alt={`Услуга ${i + 1}`}
                         className="w-full h-full object-cover rounded-[20px]"
                       />
                     </div>
@@ -580,11 +579,12 @@ export default function VerdantPage() {
         </div>
       </section>
 
+      {/* FAQ */}
       <section id="faq" className="relative py-20 md:py-32 px-4 animate-on-scroll">
         <div className="max-w-[800px] w-full mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <div className="text-[10px] md:text-xs uppercase tracking-[0.15em] text-[#A7ABB3] mb-6 flex items-center justify-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
               ЧАСТЫЕ ВОПРОСЫ
             </div>
             <h2 className="font-serif text-[32px] leading-[1.15] md:text-[48px] md:leading-[1.1] font-medium mb-6 text-balance">
@@ -592,7 +592,7 @@ export default function VerdantPage() {
               <span
                 className="inline-block"
                 style={{
-                  background: "linear-gradient(135deg, #d9a7c7 0%, #fffcdc 100%)",
+                  background: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -603,41 +603,41 @@ export default function VerdantPage() {
               ?
             </h2>
             <p className="text-[#A7ABB3] text-sm md:text-base max-w-[600px] mx-auto leading-relaxed">
-              Все, что нужно знать о VERDANT и нашей платформе для экологического мониторинга.
+              Всё, что нужно знать о скупке золота и драгоценностей.
             </p>
           </div>
 
           <div className="space-y-4">
             {[
               {
-                question: "Как работает спутниковый мониторинг VERDANT?",
+                question: "Какое золото вы принимаете?",
                 answer:
-                  "Наша платформа использует сеть спутников в сочетании с ИИ-алгоритмами для анализа лесного покрова в реальном времени. Мы обнаруживаем изменения площадью от 0,5 гектара в течение 24 часов, что позволяет оперативно реагировать на угрозы: незаконные вырубки или лесные пожары.",
+                  "Принимаем золото любой пробы: 375, 500, 583, 585, 750, 916, 950 и 999. Подходят ювелирные украшения, монеты, слитки, лом золота и даже зубные коронки. Состояние изделия не играет роли — принимаем даже сломанные украшения.",
               },
               {
-                question: "Какие регионы охватывает VERDANT?",
+                question: "Как формируется цена на скупку?",
                 answer:
-                  "VERDANT сейчас ведет мониторинг более 2,4 миллиона гектаров на пяти континентах: тропические леса Амазонии, бассейн Конго, леса Борнео, сибирская тайга и тихоокеанский северо-запад Америки. Мы постоянно расширяем охват для защиты новых экосистем.",
+                  "Цена привязана к актуальному биржевому курсу золота (Лондонская биржа металлов). Мы выплачиваем до 95% от рыночной стоимости металла, что значительно выше, чем в большинстве ломбардов. Для украшений известных ювелирных домов делаем дополнительную надбавку.",
               },
               {
-                question: "Насколько точна система обнаружения угроз?",
+                question: "Нужны ли документы для сдачи золота?",
                 answer:
-                  "Наша система обнаружения угроз на базе ИИ достигает точности 99,4%. Мы используем модели машинного обучения, обученные на миллионах спутниковых снимков, чтобы отличать естественные изменения от антропогенного обезлесения или незаконной деятельности.",
+                  "Да, по российскому законодательству требуется паспорт гражданина РФ. Для иностранных граждан — загранпаспорт с действующей визой или видом на жительство. Документы на само украшение не нужны.",
               },
               {
-                question: "Можно ли интегрировать VERDANT с существующими системами?",
+                question: "Сколько времени занимает оценка и выплата?",
                 answer:
-                  "Да, VERDANT предоставляет полноценный API для интеграции с существующими системами управления природоохранной деятельностью, ГИС-платформами и системами оповещения. Наша документация содержит подробные руководства по внедрению.",
+                  "Оценка занимает от 5 до 20 минут в зависимости от количества изделий. После вашего согласия с ценой — мгновенная выплата наличными или перевод на карту в течение 10 минут. Весь процесс, как правило, укладывается в 30 минут.",
               },
               {
-                question: "Какова модель ценообразования VERDANT?",
+                question: "Принимаете ли вы серебро и другие металлы?",
                 answer:
-                  "Мы предлагаем многоуровневое ценообразование в зависимости от площади мониторинга и набора функций. Некоммерческие природоохранные организации могут претендовать на льготные тарифы или гранты. Свяжитесь с нами для расчета индивидуального предложения.",
+                  "Да! Принимаем серебро (925, 875, 830 пробы), платину и палладий. Также скупаем бриллианты и крупные драгоценные камни — рубины, изумруды, сапфиры. Оценку делает профессиональный геммолог прямо на месте.",
               },
               {
-                question: "Как я могу помочь в сохранении лесов через VERDANT?",
+                question: "Можно ли получить онлайн-оценку до визита?",
                 answer:
-                  "Есть несколько способов: пожертвование на мониторинг незащищенных территорий, волонтерство в командах наземной верификации или корпоративное партнерство. Каждый вклад помогает защищать критически важные экосистемы.",
+                  "Да, пришлите фото и пробу изделия через форму на сайте или в WhatsApp — дадим предварительную оценку в течение 30 минут. Окончательная цена определяется при взвешивании и проверке изделия в офисе.",
               },
             ].map((faq, i) => (
               <div
@@ -668,11 +668,12 @@ export default function VerdantPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section
         id="cta"
         className="relative py-24 md:py-40 px-4 animate-on-scroll overflow-hidden pt-0"
         style={{
-          backgroundImage: `url('/earth-cta.png')`,
+          backgroundImage: `url('https://cdn.poehali.dev/projects/4ee05460-2fe5-4e11-88f6-861e898e85a0/files/e67d86e4-7862-4260-bda0-3d39729b2df8.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
@@ -681,127 +682,96 @@ export default function VerdantPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0C0F] via-[#0B0C0F]/60 to-transparent pointer-events-none" />
         <div className="max-w-[800px] w-full mx-auto text-center relative z-10">
           <div className="inline-flex items-center gap-2 glass-pill px-4 py-2 rounded-full mb-8 text-xs md:text-sm text-[#A7ABB3]">
-            <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-pulse" />
-            Спасем планету
+            <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+            Бесплатная оценка сегодня
           </div>
 
           <h2 className="font-serif text-[40px] leading-[1.15] md:text-[64px] md:leading-[1.1] font-medium mb-6 text-balance">
-            Присоединяйтесь к глобальному движению
+            Получите деньги за украшения прямо сейчас
           </h2>
           <p className="text-[#A7ABB3] text-base md:text-lg mb-10 leading-relaxed max-w-[560px] mx-auto">
-            Вместе мы строим устойчивое будущее. Начните защищать леса уже сегодня.
+            Оставьте заявку — перезвоним в течение 10 минут, ответим на все вопросы и запишем на удобное время.
           </p>
 
-          <Button className="glass-button text-base rounded-full bg-white/5 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 text-white px-8 py-6 md:text-base">
-            Начать сейчас
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <input
+              type="tel"
+              placeholder="+7 (___) ___-__-__"
+              className="px-6 py-4 bg-white/5 border border-white/20 rounded-full text-base text-[#F2F3F5] placeholder-[#A7ABB3] focus:outline-none focus:border-yellow-400/50 focus:ring-1 focus:ring-yellow-400/20 transition-all w-full sm:w-auto sm:min-w-[280px]"
+            />
+            <Button className="glass-button text-base rounded-full bg-yellow-500/20 border border-yellow-400/40 hover:bg-yellow-500/30 hover:border-yellow-400/60 transition-all duration-300 text-yellow-100 px-8 py-6 md:text-base whitespace-nowrap">
+              Оценить бесплатно
+            </Button>
+          </div>
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="relative px-4 border-t border-white/5 py-8">
         <div className="max-w-[1120px] w-full mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-12">
-            {/* Brand Column */}
             <div className="flex flex-col gap-4">
-              <div className="text-lg font-semibold font-mono">VERDANT</div>
+              <div className="text-lg font-semibold font-mono text-yellow-400">ЗОЛОТОЙ ВЕК</div>
               <p className="text-xs text-[#A7ABB3] leading-relaxed">
-                Защита лесов по всему миру с помощью мониторинга в реальном времени и ИИ-технологий.
+                Скупка золота и драгоценностей по лучшим ценам. Работаем честно с 2010 года.
               </p>
               <div className="flex items-center gap-4 mt-2">
-                <a
-                  href="#"
-                  className="text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors"
-                  aria-label="X (Twitter)"
-                >
+                <a href="#" className="text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors" aria-label="X (Twitter)">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                 </a>
-                <a
-                  href="#"
-                  className="text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors"
-                  aria-label="YouTube"
-                >
+                <a href="#" className="text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors" aria-label="YouTube">
                   <Youtube className="w-4 h-4" />
                 </a>
-                <a
-                  href="#"
-                  className="text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors"
-                  aria-label="Instagram"
-                >
+                <a href="#" className="text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors" aria-label="Instagram">
                   <Instagram className="w-4 h-4" />
                 </a>
               </div>
             </div>
 
-            {/* Product Menu */}
             <div className="flex flex-col gap-4">
-              <div className="text-xs uppercase tracking-[0.15em] text-[#F2F3F5] font-semibold mb-2">Продукт</div>
+              <div className="text-xs uppercase tracking-[0.15em] text-[#F2F3F5] font-semibold mb-2">Услуги</div>
               <div className="flex flex-col gap-3">
-                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">
-                  Возможности
-                </a>
-                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">
-                  Тарифы
-                </a>
-                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">
-                  Документация
-                </a>
-                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">
-                  API
-                </a>
+                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">Скупка золота</a>
+                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">Скупка серебра</a>
+                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">Бриллианты</a>
+                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">Монеты и слитки</a>
               </div>
             </div>
 
-            {/* Company Menu */}
             <div className="flex flex-col gap-4">
               <div className="text-xs uppercase tracking-[0.15em] text-[#F2F3F5] font-semibold mb-2">Компания</div>
               <div className="flex flex-col gap-3">
-                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">
-                  О нас
-                </a>
-                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">
-                  Блог
-                </a>
-                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">
-                  Карьера
-                </a>
-                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">
-                  Контакты
-                </a>
+                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">О нас</a>
+                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">Отзывы</a>
+                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">Наши адреса</a>
+                <a href="#" className="text-sm text-[#A7ABB3] hover:text-[#F2F3F5] transition-colors">Контакты</a>
               </div>
             </div>
 
-            {/* Newsletter Subscription */}
             <div className="flex flex-col gap-4">
-              <div className="text-xs uppercase tracking-[0.15em] text-[#F2F3F5] font-semibold mb-2">Рассылка</div>
-              <p className="text-xs text-[#A7ABB3] mb-3">Получайте новости об экологических инициативах.</p>
+              <div className="text-xs uppercase tracking-[0.15em] text-[#F2F3F5] font-semibold mb-2">Онлайн-оценка</div>
+              <p className="text-xs text-[#A7ABB3] mb-3">Пришлите фото — оценим за 30 минут.</p>
               <div className="flex flex-col gap-2">
                 <input
-                  type="email"
-                  placeholder="Введите email"
-                  className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-xs text-[#F2F3F5] placeholder-[#A7ABB3] focus:outline-none focus:border-pink-400/50 focus:ring-1 focus:ring-pink-400/20 transition-all"
+                  type="tel"
+                  placeholder="+7 (___) ___-__-__"
+                  className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-xs text-[#F2F3F5] placeholder-[#A7ABB3] focus:outline-none focus:border-yellow-400/50 focus:ring-1 focus:ring-yellow-400/20 transition-all"
                 />
-                <button className="px-4 py-2 border rounded-lg text-xs font-medium hover:bg-pink-500/30 hover:border-pink-500/50 transition-all bg-green-800 border-green-700 text-white">
-                  Подписаться
+                <button className="px-4 py-2 border rounded-lg text-xs font-medium hover:bg-yellow-500/20 hover:border-yellow-500/40 transition-all bg-yellow-500/10 border-yellow-600/30 text-yellow-100">
+                  Отправить заявку
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Footer Bottom */}
           <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#A7ABB3]">
-            <div>2025 VERDANT. Все права защищены.</div>
+            <div>2025 Золотой Век. Все права защищены.</div>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-[#F2F3F5] transition-colors">
-                Политика конфиденциальности
-              </a>
-              <a href="#" className="hover:text-[#F2F3F5] transition-colors">
-                Условия использования
-              </a>
-              <a href="#" className="hover:text-[#F2F3F5] transition-colors">
-                Настройки cookie
-              </a>
+              <a href="#" className="hover:text-[#F2F3F5] transition-colors">Политика конфиденциальности</a>
+              <a href="#" className="hover:text-[#F2F3F5] transition-colors">Условия использования</a>
+              <a href="#" className="hover:text-[#F2F3F5] transition-colors">Лицензии</a>
             </div>
           </div>
         </div>
